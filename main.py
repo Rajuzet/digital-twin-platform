@@ -1,4 +1,3 @@
-
 """
 main.py
 Entry point for the Digital Twin AI system
@@ -9,15 +8,19 @@ from core_ai.executor import execute_tasks
 
 
 def main():
-    # Example high-level goal
-    goal = "Build a digital twin system for satellite mission planning"
+    print("\n🚀 Digital Twin Autonomous AI")
+    print("-" * 35)
 
-    print("🎯 Goal:")
-    print(goal)
+    # 🔹 Take user input
+    goal = input("\nEnter your high-level goal:\n> ").strip()
+
+    if not goal:
+        print("❌ Goal cannot be empty")
+        return
+
     print("\n🧠 Planning...\n")
-
-    # Step 1: Plan the goal
     plan = plan_goal(goal)
+
     tasks = plan.get("tasks", [])
 
     if not tasks:
@@ -29,8 +32,6 @@ def main():
         print(f"{i}. {task}")
 
     print("\n⚙️ Executing tasks...\n")
-
-    # Step 2: Execute tasks
     results = execute_tasks(tasks)
 
     print("✅ Execution Results:")
@@ -40,4 +41,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
   
